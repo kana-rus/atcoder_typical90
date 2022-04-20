@@ -32,14 +32,12 @@ fn main() {
         (s1, s2)
     };
 
+    let mut ans = String::new();
     for query in l_r {
-        println!("{} {}",
-            sum1[query.1] - sum1[query.0 - 1],
-            sum2[query.1] - sum2[query.0 - 1]
-            /*
-            sum1, sum2 で 0 番要素は 0 としているので、
-            query.0 が 1(番) でもうまくいく。
-            */
-        );
+        ans += &(sum1[query.1] - sum1[query.0 - 1]).to_string();
+        ans += " ";
+        ans += &(sum2[query.1] - sum2[query.0 - 1]).to_string();
+        ans += "\n"
     }
+    println!("{}", ans);
 }
